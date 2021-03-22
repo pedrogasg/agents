@@ -593,8 +593,8 @@ class PolicySaver(object):
       export_dir: Directory to save the policy to.
       options: Optional `tf.saved_model.SaveOptions` object.
     """
-    tf.compat.v2.saved_model.save(
-        self._policy, export_dir, signatures=self._signatures, options=options)
+
+    tf.keras.models.save_model(self._policy, export_dir, signatures=self._signatures, options=options)
 
     temp_spec_file_name = '{}_temp'.format(POLICY_SPECS_PBTXT)
     temp_spec_output_path = os.path.join(export_dir, temp_spec_file_name)
