@@ -216,6 +216,7 @@ class PolicySaver(object):
 
     # Make a shallow copy as we'll be making some changes in-place.
     saved_policy = tf.Module()
+    saved_policy.outputs = None
     saved_policy.collect_data_spec = copy.copy(policy.collect_data_spec)
     saved_policy.policy_state_spec = copy.copy(policy.policy_state_spec)
 
